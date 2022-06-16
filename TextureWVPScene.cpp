@@ -3,16 +3,9 @@
 
 TextureWVPScene::TextureWVPScene()
 {
-	_texture = make_shared<Texture>(L"Resource/COUNTERSIDE.png");
+	_texture = make_shared<Texture>(L"Resource/EARTH.png");
 
 	_worldBuffer = make_shared<MatrixBuffer>();
-	_viewBuffer = make_shared<MatrixBuffer>();
-	_projectionBuffer = make_shared<MatrixBuffer>();
-
-	XMMATRIX projection = XMMatrixOrthographicLH(WIN_WIDTH, WIN_HEIGHT, 0.0f, 1.0f);
-
-	_projectionBuffer->SetMatrix(projection);
-	_projectionBuffer->Update();
 }
 
 TextureWVPScene::~TextureWVPScene()
@@ -21,6 +14,16 @@ TextureWVPScene::~TextureWVPScene()
 
 void TextureWVPScene::Update()
 {
+	// ÀÌ°Ç À¯Á¾¿¬¾¾°Å¸¦ ¹è²¸¼­ÇÑ°Ô¾ê¿ä
+	//_cameraPos = { -300.0f,0 };
+	//_angle += 0.001f;
+	// S ´Â {1,1}
+	//XMMATRIX cameraMatrix = XMMatrixRotationZ(_angle);
+	//cameraMatrix = XMMatrixTranslation(_cameraPos.x, _cameraPos.y, 0);
+	//_viewBuffer->SetMatrix(cameraMatrix);
+
+	//_texture->GetPos().x -= 0.1f;
+
 	if (GetAsyncKeyState(VK_F1))
 	{
 		_texture->GetScale().x += 0.001f;
@@ -41,6 +44,9 @@ void TextureWVPScene::Update()
 		_texture->GetScale().y -= 0.001f;
 	}
 
+
+
+
 	if (GetAsyncKeyState(VK_SPACE))
 	{
 		_texture->GetAnagle() += 0.001f;
@@ -50,6 +56,8 @@ void TextureWVPScene::Update()
 	{
 		_texture->GetAnagle() -= 0.001f;
 	}
+
+
 
 	if (GetAsyncKeyState(VK_LEFT))
 	{
@@ -70,16 +78,13 @@ void TextureWVPScene::Update()
 		_texture->GetPos().y -= 0.1f;
 	}
 	_worldBuffer->Update();
-	_viewBuffer->Update();
-
 	_texture->Update();
 }
 
 void TextureWVPScene::Render()
 {
 	_worldBuffer->SetVSBuffer(0);
-	_viewBuffer->SetVSBuffer(1);
-	_projectionBuffer->SetVSBuffer(2);
+
 
 	_texture->Render();
 }

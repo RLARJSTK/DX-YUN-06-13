@@ -48,9 +48,12 @@ using namespace std;
 #include "Framework/Render/VertexShader.h"
 #include "Framework/Render/PixelShader.h"
 
+#include "Framework/Utillity/Timer.h"
+#include "Framework/Utillity/InputManger.h"
 // Texture
 #include "Framework/Texture/SRV.h"
 #include "Framework/Texture/SamplerState.h"
+
 
 // Obj
 #include "Object/Texture.h"
