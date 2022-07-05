@@ -1,0 +1,17 @@
+IMMUTABLE의미리
+
+	//D3D11_USAGE_DEFAULT: GPU에서 읽고 쓰기기능
+	//D3D11_USAGE_IMMUTABLE ;GPU 에서 읽기
+	//D3D11_USAGE_DYNAMIC ;CPU에서 쓰기,GPU 에서 읽기(Map와 Umap)에서 응용가능
+	//D3D11_USAGE_STAGING ;GPU에서CPU로이동시깈다= 조사하기
+이벤트 형식처리
+함수포인터, 포인터함수
+맴버함수필요조건 소속과 객채 과제로 조사하기
+함수객채의 장점들
+콜백함수 중요조사대상응용법
+STL::functision
+CPULSPLUS의 알고리즘 조사
+<> ->template
+delegate와 Call Back의응용
+인트로
+콜백함수에 함수포인터를 넣을수없다 거건ㄴ 객채함수가 없으니까
